@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Matriz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ffffff;
+        }
+        form input {
+            margin: 5px 0;
+            padding: 10px;
+            width: calc(20% - 22px);
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+        #matrix {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        #matrix input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .matrix-output {
+            margin-top: 20px;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+            margin: 0;
+            border-bottom: 2px solid #333;
+        }
+        .menu a {
+            text-decoration: none;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+        }
+        .menu a:hover {
+            background-color: #666;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Atividade 6</h1>
+    </header>
+    <nav class="menu">
+        <a href="file:///home/vso2023/Downloads/dsb.html">Atividade 1</a>
+        <a href="file:///home/vso2023/Downloads/calculadora.html">Atividade 2</a>
+        <a href="file:///home/vso2023/Downloads/salario.html">Atividade 3</a>
+        <a href="file:///home/vso2023/Downloads/idade.html">Atividade 4</a>
+        <a href="file:///home/vso2023/Downloads/palavras.html">Atividade 5</a>
+        <a href="file:///home/vso2023/Downloads/matriz.html">Atividade 6</a>
+    </nav>
+
+    <div class="container">
+        <h2>Calculadora de Matriz 5x5</h2>
+        <form id="matrixForm">
+            <div id="matrix">
+                <!-- Criar 25 campos de entrada para a matriz 5x5 -->
+                <input type="number" id="m00" placeholder="M[0][0]" required>
+                <input type="number" id="m01" placeholder="M[0][1]" required>
+                <input type="number" id="m02" placeholder="M[0][2]" required>
+                <input type="number" id="m03" placeholder="M[0][3]" required>
+                <input type="number" id="m04" placeholder="M[0][4]" required">
+                
+                <input type="number" id="m10" placeholder="M[1][0]" required>
+                <input type="number" id="m11" placeholder="M[1][1]" required>
+                <input type="number" id="m12" placeholder="M[1][2]" required>
+                <input type="number" id="m13" placeholder="M[1][3]" required>
+                <input type="number" id="m14" placeholder="M[1][4]" required>
+                
+                <input type="number" id="m20" placeholder="M[2][0]" required>
+                <input type="number" id="m21" placeholder="M[2][1]" required>
+                <input type="number" id="m22" placeholder="M[2][2]" required>
+                <input type="number" id="m23" placeholder="M[2][3]" required>
+                <input type="number" id="m24" placeholder="M[2][4]" required>
+                
+                <input type="number" id="m30" placeholder="M[3][0]" required>
+                <input type="number" id="m31" placeholder="M[3][1]" required>
+                <input type="number" id="m32" placeholder="M[3][2]" required>
+                <input type="number" id="m33" placeholder="M[3][3]" required>
+                <input type="number" id="m34" placeholder="M[3][4]" required>
+                
+                <input type="number" id="m40" placeholder="M[4][0]" required>
+                <input type="number" id="m41" placeholder="M[4][1]" required>
+                <input type="number" id="m42" placeholder="M[4][2]" required>
+                <input type="number" id="m43" placeholder="M[4][3]" required>
+                <input type="number" id="m44" placeholder="M[4][4]" required>
+            </div>
+            <button type="button" onclick="calculateSums()">Calcular Somas</button>
+        </form>
+        <div class="result" id="result"></div>
+        <div class="matrix-output" id="matrixOutput"></div>
+        <a href="file:///home/vso2023/Downloads/telainicial.html">Voltar</a>
+    </div>
+
+    <script>
+        
+        function calculateSums() {
+            
+            const matrix = [
+                [parseFloat(document.getElementById('m00').value), parseFloat(document.getElementById('m01').value), parseFloat(document.getElementById('m02').value), parseFloat(document.getElementById('m03').value), parseFloat(document.getElementById('m04').value)],
+                [parseFloat(document.getElementById('m10').value), parseFloat(document.getElementById('m11').value), parseFloat(document.getElementById('m12').value), parseFloat(document.getElementById('m13').value), parseFloat(document.getElementById('m14').value)],
+                [parseFloat(document.getElementById('m20').value), parseFloat(document.getElementById('m21').value), parseFloat(document.getElementById('m22').value), parseFloat(document.getElementById('m23').value), parseFloat(document.getElementById('m24').value)],
+                [parseFloat(document.getElementById('m30').value), parseFloat(document.getElementById('m31').value), parseFloat(document.getElementById('m32').value), parseFloat(document.getElementById('m33').value), parseFloat(document.getElementById('m34').value)],
+                [parseFloat(document.getElementById('m40').value), parseFloat(document.getElementById('m41').value), parseFloat(document.getElementById('m42').value), parseFloat(document.getElementById('m43').value), parseFloat(document.getElementById('m44').value)]
+            ];
+
+            
+            const sumRow4 = matrix[3].reduce((a, b) => a + b, 0);
+            const sumCol2 = matrix.reduce((sum, row) => sum + row[1], 0);
+            const sumMainDiagonal = matrix.reduce((sum, row, i) => sum + row[i], 0);
+            const sumSecondaryDiagonal = matrix.reduce((sum, row, i) => sum + row[4 - i], 0);
+            const sumAllElements = matrix.flat().reduce((a, b) => a + b, 0);
+
+            
+            let matrixHTML = '<h2>Matriz 5x5</h2><table border="1" style="border-collapse: collapse;">';
+            matrix.forEach(row => {
+                matrixHTML += '<tr>';
+                row.forEach(value => {
+                    matrixHTML += `<td style="padding: 10px; text-align: center;">${value}</td>`;
+                });
+                matrixHTML += '</tr>';
+            });
+            matrixHTML += '</table>';
+
+            
+            document.getElementById('result').innerHTML = `
+                Soma da linha 4: ${sumRow4}<br>
+                Soma da coluna 2: ${sumCol2}<br>
+                Soma da diagonal principal: ${sumMainDiagonal}<br>
+                Soma da diagonal secundária: ${sumSecondaryDiagonal}<br>
+                Soma de todos os elementos: ${sumAllElements}
+            `;
+
+            
+            document.getElementById('matrixOutput').innerHTML = matrixHTML;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Palavras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ffffff;
+        }
+        form input {
+            margin: 5px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+            color: red;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+            margin: 0;
+            border-bottom: 2px solid #333;
+        }
+        .menu a {
+            text-decoration: none;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+        }
+        .menu a:hover {
+            background-color: #666;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Atividade 5</h1>
+    </header>
+    <nav class="menu">
+        <a href="file:///home/vso2023/Downloads/dsb.html">Atividade 1</a>
+        <a href="file:///home/vso2023/Downloads/calculadora.html">Atividade 2</a>
+        <a href="file:///home/vso2023/Downloads/salario.html">Atividade 3</a>
+        <a href="file:///home/vso2023/Downloads/idade.html">Atividade 4</a>
+        <a href="file:///home/vso2023/Downloads/matriz.html">Atividade 6</a>
+    </nav>
+
+    <div class="container">
+        <h2>Verificação de Palavras</h2>
+        <form id="wordForm">
+            <input type="text" id="initialWord" placeholder="Digite a palavra inicial" required>
+            <input type="text" id="word1" placeholder="Palavra 1" required>
+            <input type="text" id="word2" placeholder="Palavra 2" required>
+            <input type="text" id="word3" placeholder="Palavra 3" required>
+            <input type="text" id="word4" placeholder="Palavra 4" required>
+            <input type="text" id="word5" placeholder="Palavra 5" required>
+            <input type="text" id="word6" placeholder="Palavra 6" required>
+            <input type="text" id="word7" placeholder="Palavra 7" required>
+            <input type="text" id="word8" placeholder="Palavra 8" required>
+            <input type="text" id="word9" placeholder="Palavra 9" required>
+            <input type="text" id="word10" placeholder="Palavra 10" required>
+            <button type="button" onclick="checkWords()">Verificar Palavras</button>
+        </form>
+        <p id="result"></p>
+        <a href="file:///home/vso2023/Downloads/telainicial.html">Voltar</a>
+    </div>
+
+    <script>
+        
+        function checkWords() {
+            
+            const initialWord = document.getElementById('initialWord').value.trim();
+
+            
+            const newWords = [
+                document.getElementById('word1').value.trim(),
+                document.getElementById('word2').value.trim(),
+                document.getElementById('word3').value.trim(),
+                document.getElementById('word4').value.trim(),
+                document.getElementById('word5').value.trim(),
+                document.getElementById('word6').value.trim(),
+                document.getElementById('word7').value.trim(),
+                document.getElementById('word8').value.trim(),
+                document.getElementById('word9').value.trim(),
+                document.getElementById('word10').value.trim()
+            ];
+
+           
+            const found = newWords.some(word => word === initialWord);
+
+            
+            if (found) {
+                document.getElementById('result').innerText = 'Erro: Uma das palavras novas é igual à palavra inicial!';
+            } else {
+                document.getElementById('result').innerText = 'Nenhuma palavra nova é igual à palavra inicial.';
+            }
+        }
+    </script>
+</body>
+</html>

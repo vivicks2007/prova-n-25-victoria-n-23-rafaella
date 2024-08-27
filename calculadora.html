@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Média Final</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ffffff;
+        }
+        form {
+            margin: 20px 0;
+        }
+        form input {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+            margin: 0;
+            border-bottom: 2px solid #333;
+        }
+        .menu a {
+            text-decoration: none;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+        }
+        .menu a:hover {
+            background-color: #666;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Atividade 2</h1>
+    </header>
+    <nav class="menu">
+        <a href="file:///home/vso2023/Downloads/dsb.html">Atividade 1</a>
+        <a href="file:///home/vso2023/Downloads/salario.html">Atividade 3</a>
+        <a href="file:///home/vso2023/Downloads/idade.html">Atividade 4</a>
+        <a href="file:///home/vso2023/Downloads/palavras.html">Atividade 5</a>
+        <a href="file:///home/vso2023/Downloads/matriz.html">Atividade 6</a>
+    </nav>
+
+    <div class="container">
+        <h2>Cálculo da Média Final</h2>
+        <form id="gradeForm">
+            <input type="number" id="P1" placeholder="Nota da P1" required>
+            <input type="number" id="P2" placeholder="Nota da P2" required>
+            <input type="number" id="P3" placeholder="Nota da P3" required>
+            <input type="number" id="P4" placeholder="Nota da P4" required>
+            <button type="button" onclick="calculateAverage()">Calcular Média</button>
+            <br>
+            <br>
+            <a href="file:///home/vso2023/Downloads/telainicial.html">Voltar</a>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        
+        function calculateAverage() {
+            
+            const P1 = parseFloat(document.getElementById('P1').value);
+            const P2 = parseFloat(document.getElementById('P2').value);
+            const P3 = parseFloat(document.getElementById('P3').value);
+            const P4 = parseFloat(document.getElementById('P4').value);
+
+            
+            if (!isNaN(P1) && !isNaN(P2) && !isNaN(P3) && !isNaN(P4)) {
+                
+                const average = (P1 + P2 + P3 + P4) / 4;
+                
+                document.getElementById('result').innerText = `A média final do aluno é: ${average.toFixed(2)}`;
+            } else {
+                
+                document.getElementById('result').innerText = 'Por favor, insira todas as notas corretamente.';
+            }
+        }
+    </script>
+</body>
+</html>
+

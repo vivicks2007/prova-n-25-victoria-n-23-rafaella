@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem de Idade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ffffff;
+        }
+        form input {
+            margin: 5px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+            margin: 0;
+            border-bottom: 2px solid #333;
+        }
+        .menu a {
+            text-decoration: none;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+        }
+        .menu a:hover {
+            background-color: #666;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Atividade 4</h1>
+    </header>
+    <nav class="menu">
+        <a href="file:///home/vso2023/Downloads/dsb.html">Atividade 1</a>
+        <a href="file:///home/vso2023/Downloads/calculadora.html">Atividade 2</a>
+        <a href="file:///home/vso2023/Downloads/salario.html">Atividade 3</a>
+        <a href="file:///home/vso2023/Downloads/palavras.html">Atividade 5</a>
+        <a href="file:///home/vso2023/Downloads/matriz.html">Atividade 6</a>
+    </nav>
+    
+    <div class="container">
+        <h2>Contagem de Idade</h2>
+        <form id="ageForm">
+            
+            <input type="number" id="age1" placeholder="Idade da Pessoa 1" required>
+            <input type="number" id="age2" placeholder="Idade da Pessoa 2" required>
+            <input type="number" id="age3" placeholder="Idade da Pessoa 3" required>
+            <input type="number" id="age4" placeholder="Idade da Pessoa 4" required>
+            <input type="number" id="age5" placeholder="Idade da Pessoa 5" required>
+            <input type="number" id="age6" placeholder="Idade da Pessoa 6" required>
+            <input type="number" id="age7" placeholder="Idade da Pessoa 7" required>
+            <input type="number" id="age8" placeholder="Idade da Pessoa 8" required>
+            <input type="number" id="age9" placeholder="Idade da Pessoa 9" required>
+            <input type="number" id="age10" placeholder="Idade da Pessoa 10" required>
+            <button type="button" onclick="countAdults()">Contar Pessoas com 18 Anos ou Mais</button>
+        </form>
+        <p id="result"></p>
+        <a href="file:///home/vso2023/Downloads/telainicial.html">Voltar</a>
+    </div>
+
+
+    <script>
+        
+        function countAdults() {
+            
+            const ages = [
+                parseInt(document.getElementById('age1').value, 10),
+                parseInt(document.getElementById('age2').value, 10),
+                parseInt(document.getElementById('age3').value, 10),
+                parseInt(document.getElementById('age4').value, 10),
+                parseInt(document.getElementById('age5').value, 10),
+                parseInt(document.getElementById('age6').value, 10),
+                parseInt(document.getElementById('age7').value, 10),
+                parseInt(document.getElementById('age8').value, 10),
+                parseInt(document.getElementById('age9').value, 10),
+                parseInt(document.getElementById('age10').value, 10)
+            ];
+
+            
+            const adultCount = ages.filter(age => age >= 18).length;
+            
+            
+            document.getElementById('result').innerText = `Quantidade de pessoas com 18 anos ou mais: ${adultCount}`;
+        }
+    </script>
+</body>
+</html>

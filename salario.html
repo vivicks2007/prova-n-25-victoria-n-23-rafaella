@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Salário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ffffff;
+        }
+        form {
+            margin: 20px 0;
+        }
+        form input {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+            margin: 0;
+            border-bottom: 2px solid #333;
+        }
+        .menu a {
+            text-decoration: none;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            display: inline-block;
+            text-align: center;
+        }
+        .menu a:hover {
+            background-color: #666;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Atividade 3</h1>
+    </header>
+    <nav class="menu">
+        <a href="file:///home/vso2023/Downloads/dsb.html">Atividade 1</a>
+        <a href="file:///home/vso2023/Downloads/calculadora.html">Atividade 2</a>
+        <a href="file:///home/vso2023/Downloads/idade.html">Atividade 4</a>
+        <a href="file:///home/vso2023/Downloads/palavras.html">Atividade 5</a>
+        <a href="file:///home/vso2023/Downloads/matriz.html">Atividade 6</a>
+    </nav>
+
+    <div class="container">
+        <h2>Calculadora de Salário</h2>
+        <form id="salaryForm">
+            <input type="number" id="hoursWorked" placeholder="Horas Trabalhadas no Mês" value="160" readonly>
+            <input type="number" id="hourlyRate" placeholder="Valor da Hora Trabalhada (R$)" value="25" readonly>
+            <input type="number" id="discountPercentage" placeholder="Percentual de Desconto (%)" value="10" readonly>
+            <button type="button" onclick="calculateSalary()">Calcular Salário</button>
+            <br>
+            <br>
+            <a href="file:///home/vso2023/Downloads/telainicial.html">Voltar</a>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        
+        function calculateSalary() {
+            
+            const HT = parseFloat(document.getElementById('hoursWorked').value);
+            const VH = parseFloat(document.getElementById('hourlyRate').value);
+            const PD = parseFloat(document.getElementById('discountPercentage').value) / 100;
+
+            
+            const grossSalary = HT * VH;
+            
+            
+            const discountTotal = grossSalary * PD;
+            
+            
+            const netSalary = grossSalary - discountTotal;
+            
+            
+            document.getElementById('result').innerText = `Salário Bruto: R$ ${grossSalary.toFixed(2)}\nTotal de Desconto: R$ ${discountTotal.toFixed(2)}\nSalário Líquido: R$ ${netSalary.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
